@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <title>ProgLangApp</title>
+    <style>
+        * {
+            font-size: 30px;
+        }
+        
+        body {
+            background-color: blanchedalmond;
+        }
+        
+        .name {
+            text-align: center;
+        }
+        
+        .btn {
+            width: 10%;
+        }
+        
+        input[type="checkbox"] {
+            width: 2%;
+            height: 0.6em;
+        }
+        
+        .btn:hover {
+            background-color: rgb(226, 106, 130);
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Programming Language App</h1>
+        <form onsubmit="display()">
+            <input type="text" placeholder="enter your name" id="name" class="name" />
+            <br><br>
+            <input type="checkbox" id="js" />JavaScript
+            <input type="checkbox" id="py" />Python
+            <input type="checkbox" id="ja" />Java
+            <br><br>
+            <input type="Submit" value="Show" class="btn" />
+        </form>
+        <h2 id="msg"></h2>
+    </center>
+    <script>
+        function display() {
+            event.preventDefault();
+            let name = document.getElementById("name");
+            let js = document.getElementById("js");
+            let py = document.getElementById("py");
+            let ja = document.getElementById("ja");
+            let msg = document.getElementById("msg");
+
+            if (name.value == "") {
+                alert("u did not enter the name !! ")
+                msg.innerHTML = " ";
+                name.focus();
+                return;
+            }
+
+            let choice = "";
+            if (js.checked)
+                choice += "JavaScript ";
+            if (py.checked)
+                choice += "Python ";
+            if (ja.checked)
+                choice += "JAVA ";
+            if (choice.length == 0)
+                choice = " no ";
+            let ans = name.value + " has Learned " + choice + " languages ";
+
+            msg.innerHTML = ans;
+
+
+        }
+    </script>
+</body>
+
+</html>
